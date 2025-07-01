@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TaskController;
+use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 
 Route::get('/', function () {
     return view ('welcome');
 });
-Route::get('/test', function () {
+Route::post('/test', function () {
     return  ('welcome');
-});
+})->withoutMiddleware([VerifyCsrfToken::class]);
